@@ -46,7 +46,7 @@ try {
         // For submissions, only the uploader or the class assistant can view it
         if ($file['uploader_id'] != $userId && !isClassAssistant($pdo, $classId, $userId)) {
             header("HTTP/1.0 403 Forbidden");
-            exit('Access denied');
+            exit('Access denied: not uploader or assistant');
         }
     }
 
@@ -58,7 +58,7 @@ try {
     // Check if user is member or assistant of the class
     if (!isClassMember($pdo, $classId, $userId) && !isClassAssistant($pdo, $classId, $userId)) {
         header("HTTP/1.0 403 Forbidden");
-        exit('Access denied');
+        exit('Access denied: not member or assistant');
     }
 
     // 2. Locate file on disk

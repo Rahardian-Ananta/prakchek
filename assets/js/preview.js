@@ -82,7 +82,10 @@ function renderPdf(url, container) {
     const renderContainer = document.getElementById('pdf-render-container');
     const loadingIndicator = document.getElementById('pdf-loading-indicator');
     
-    const loadingTask = pdfjsLib.getDocument(url);
+    const loadingTask = pdfjsLib.getDocument({
+        url: url,
+        withCredentials: true
+    });
     loadingTask.promise.then(async function(pdf) {
         loadingIndicator.style.display = 'none';
         renderContainer.style.display = 'block';
