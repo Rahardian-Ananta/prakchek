@@ -57,15 +57,28 @@ Jika Anda sudah menyelesaikan Instalasi di atas, Anda bisa langsung melakukan Lo
 - **Password:** `password123`
 
 ### **Data Komprehensif (Testing Menyeluruh):**
-**Akun Asisten Praktikum (Asprak):**
-- **Email:** `asprak.basisdata@prakchek.local`
-- **Password:** `password123`
-- **Juga tersedia:** `asprak.rpl@prakchek.local`, `asprak.web@prakchek.local`, `asprak.jaringan@prakchek.local`, dll.
 
-**Akun Mahasiswa:**
+*Semua akun di bawah ini menggunakan **Password:** `password123`*
+
+**1. Akun Asisten Praktikum (Asprak) - Terbagi dalam 10 Kelas Berbeda:**
+- 🗄️ **Basis Data 1:** `asprak.basisdata@prakchek.local`
+- 💻 **Rekayasa Perangkat Lunak:** `asprak.rpl@prakchek.local`
+- 🧠 **Kecerdasan Komputasi:** `asprak.kompkomputasi@prakchek.local`
+- 🌐 **Pemrograman Web:** `asprak.web@prakchek.local`
+- ⚙️ **Sistem Operasi:** `asprak.sisop@prakchek.local`
+- 🔒 **Keamanan Informasi:** `asprak.keamanan@prakchek.local`
+- 📡 **Jaringan Komputer:** `asprak.jaringan@prakchek.local`
+- 📈 **Analisis Algoritma:** `asprak.algoritma@prakchek.local`
+- 🎨 **Interaksi Manusia Komputer:** `asprak.imk@prakchek.local`
+- 🤖 **Kecerdasan Buatan:** `asprak.ai@prakchek.local`
+
+**2. Akun Mahasiswa (Total 50 Akun):**
+Mahasiswa digenerate dengan 5 variasi profil perilaku pengumpulan tugas (Active, Average, Perfectionist, Procrastinator, Struggling).
 - **Email:** `student01@prakchek.local`
-- **Password:** `password123`
-- **Juga tersedia:** `student02@prakchek.local` sampai `student50@prakchek.local`
+- **Email:** `student02@prakchek.local`
+- **Email:** `student03@prakchek.local`
+*(...berlanjut berurutan hingga...)*
+- **Email:** `student50@prakchek.local`
 
 Untuk mencoba mendaftarkan Asisten Praktikum baru, Anda akan dimintai "Kode Rahasia". Secara bawaan, kodenya adalah:
 - **Kode Rahasia Asisten:** `PRAKCHEK_ASPRAK_2026` 
