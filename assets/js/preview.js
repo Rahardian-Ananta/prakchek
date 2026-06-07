@@ -32,6 +32,16 @@ function renderFilePreview(fileId, mimeType, fileName) {
             mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         ) {
             renderWord(fileUrl, modalBody);
+        } else if (
+            mimeType.startsWith('text/') || 
+            mimeType.includes('json') || 
+            mimeType.includes('xml') || 
+            mimeType.includes('sql') ||
+            mimeType.includes('php') ||
+            mimeType.includes('javascript') ||
+            /\.(txt|php|sql|md|csv|json|xml|js|css|html)$/i.test(fileName)
+        ) {
+            renderText(fileUrl, modalBody);
         } else {
             renderFallback(mimeType, modalBody);
         }
@@ -158,6 +168,42 @@ function renderWord(url, container) {
         })
         .catch(err => {
             renderFallback('application/msword', container, 'Error loading Word document: ' + err.message);
+        });
+}
+
+function renderText(url, container) {
+    container.innerHTML = `
+        <div class="text-center py-5" id="text-loading-indicator">
+            <div class="spinner-border text-info mb-3" role="status"></div>
+            <h5>Loading Text File...</h5>
+        </div>
+        <pre id="text-render-container" style="max-height: 70vh; overflow-y: auto; background-color: #272822; color: #f8f8f2; padding: 1rem; text-align: left; display: none; border-radius: 0.375rem; font-family: monospace; font-size: 14px; white-space: pre-wrap; word-wrap: break-word;"></pre>
+    `;
+
+    fetch(url, { credentials: 'same-origin' })
+        .then(response => {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.text();
+        })
+        .then(text => {
+            document.getElementById('text-loading-indicator').style.display = 'none';
+            const renderContainer = document.getElementById('text-render-container');
+            renderContainer.style.display = 'block';
+            
+            // Basic escaping to prevent XSS
+            const escapeHtml = (unsafe) => {
+                return unsafe
+                     .replace(/&/g, "&amp;")
+                     .replace(/</g, "&lt;")
+                     .replace(/>/g, "&gt;")
+                     .replace(/"/g, "&quot;")
+                     .replace(/'/g, "&#039;");
+            };
+            
+            renderContainer.innerHTML = escapeHtml(text) || '<i>(File kosong)</i>';
+        })
+        .catch(err => {
+            renderFallback('text/plain', container, 'Error loading text file: ' + err.message);
         });
 }
 

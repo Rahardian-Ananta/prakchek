@@ -99,4 +99,18 @@ Jika Anda ingin mengubah konfigurasi inti di masa depan, berikut adalah file-fil
 
 ---
 
+## Fitur In-Browser File Preview
+
+PrakCheck mendukung fitur *In-Browser Preview* cerdas yang memungkinkan asisten dan dosen untuk langsung membaca atau memutar file tugas mahasiswa langsung dari dalam aplikasi tanpa perlu mengunduhnya satu per satu. Berikut adalah daftar format file yang didukung untuk ditampilkan secara langsung:
+
+- **PDF Documents**: File `.pdf` (Didukung penuh via PDF.js).
+- **Word Documents**: File `.docx` atau `.doc` (Di-render murni sebagai HTML di browser menggunakan Mammoth.js, mendukung localhost offline).
+- **Gambar & Foto**: File `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`.
+- **Video**: File `.mp4`, `.webm`.
+- **File Teks & Kode Sumber**: File `.txt`, `.php`, `.sql`, `.js`, `.css`, `.html`, `.xml`, `.json`, `.csv`, dan `.md` (Akan ditampilkan secara rapi di dalam block code bertema monokai).
+
+*Catatan: File arsip (.zip, .rar) tetap harus diunduh secara manual.*
+
+---
+
 Selamat mengelola praktikum dengan lebih mudah! 🎉
