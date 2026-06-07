@@ -1,0 +1,8 @@
+# Disable script execution
+Options -ExecCGI
+AddHandler cgi-script .php .php3 .php4 .phtml .pl .py .jsp .asp .htm .shtml .sh .cgi
+
+# Deny direct access to all files
+# Only serve_file.php should be able to read these files via PHP's file system functions
+Order allow,deny
+Deny from all

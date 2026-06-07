@@ -1,0 +1,13 @@
+Laporan Jaringan Komputer
+Nama: Mahasiswa B
+NIM: 87654321
+Kelas: Praktikum Jaringan Komputer
+
+Pengamatan:
+- Konfigurasi router berhasil
+- Testing ping antar device sukses
+- Bandwidth monitoring aktif
+- Security policy diterapkan
+
+Analisis:
+Jaringan berfungsi optimal dengan latency rendah.

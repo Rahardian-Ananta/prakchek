@@ -1,0 +1,13 @@
+Laporan Pemrograman Web
+Nama: Mahasiswa C
+NIM: 11223344
+Kelas: Praktikum Pemrograman Web
+
+Proyek:
+1. Website e-commerce dengan PHP
+2. Fitur login/register
+3. Shopping cart
+4. Payment gateway integration
+
+Review:
+Semua fitur berjalan sesuai spesifikasi.

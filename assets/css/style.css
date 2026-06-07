@@ -1,0 +1,45 @@
+/* 
+    PrakCheck - Custom Styles
+*/
+
+body {
+    background-color: #f4f6f9;
+}
+
+.card {
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
+/* Custom UI Tweaks */
+.class-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.class-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+.pdf-viewer-container {
+    background-color: #525659;
+    padding: 10px;
+    border-radius: 4px;
+    height: 600px;
+    overflow: auto;
+}
+
+.canvas-wrapper {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

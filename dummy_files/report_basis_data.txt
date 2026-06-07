@@ -1,0 +1,13 @@
+Laporan Praktikum Basis Data
+Nama: Mahasiswa A
+NIM: 12345678
+Kelas: Praktikum Basis Data
+
+Hasil Praktikum:
+1. Berhasil membuat database dengan 5 tabel
+2. Mengimplementasikan relasi one-to-many
+3. Melakukan query dengan JOIN
+4. Membuat stored procedure sederhana
+
+Kesimpulan:
+Praktikum berjalan dengan baik, semua tujuan tercapai.
