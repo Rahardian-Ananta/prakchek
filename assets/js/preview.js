@@ -121,22 +121,44 @@ function renderPdf(url, container) {
 }
 
 function renderWord(url, container) {
-    // Note: MS Office viewer requires a public URL. Since this is likely on localhost (XAMPP), 
-    // it will fail to preview. We'll show a fallback message indicating this.
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
-    if (isLocalhost) {
-        renderFallback('application/msword', container, 'Word document preview is not available on localhost. Please download the file.');
-    } else {
-        // In production with public URL
-        const fullUrl = encodeURIComponent(window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + url);
-        container.innerHTML = `
-            <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=${fullUrl}" 
-                    width="100%" height="500px" frameborder="0">
-                This is an embedded <a target="_blank" href="http://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="http://office.com/webapps">Office Online</a>.
-            </iframe>
-        `;
+    if (typeof mammoth === 'undefined') {
+        renderFallback('application/msword', container, 'Word document viewer not loaded. Please download the file.');
+        return;
     }
+
+    container.innerHTML = `
+        <div class="text-center py-5" id="word-loading-indicator">
+            <div class="spinner-border text-primary mb-3" role="status"></div>
+            <h5>Loading Word Document...</h5>
+        </div>
+        <div id="word-render-container" style="max-height: 70vh; overflow-y: auto; background-color: #fff; padding: 2rem; text-align: left; display: none; border: 1px solid #dee2e6; border-radius: 0.375rem;"></div>
+    `;
+
+    fetch(url, { credentials: 'same-origin' })
+        .then(response => {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.arrayBuffer();
+        })
+        .then(arrayBuffer => mammoth.convertToHtml({arrayBuffer: arrayBuffer}))
+        .then(result => {
+            document.getElementById('word-loading-indicator').style.display = 'none';
+            const renderContainer = document.getElementById('word-render-container');
+            renderContainer.style.display = 'block';
+            
+            if (result.value) {
+                renderContainer.innerHTML = result.value;
+            } else {
+                renderContainer.innerHTML = '<div class="text-muted text-center py-4"><i>(Dokumen kosong)</i></div>';
+            }
+            
+            // Log any warnings from Mammoth
+            if (result.messages && result.messages.length > 0) {
+                console.warn('Mammoth messages:', result.messages);
+            }
+        })
+        .catch(err => {
+            renderFallback('application/msword', container, 'Error loading Word document: ' + err.message);
+        });
 }
 
 function renderFallback(mimeType, container, customMessage = '') {

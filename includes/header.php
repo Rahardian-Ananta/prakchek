@@ -24,6 +24,9 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
 
+    <!-- Mammoth.js for Word Preview -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/prakchek_/assets/css/style.css">
 </head>
