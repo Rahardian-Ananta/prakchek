@@ -52,6 +52,18 @@ PrakCheck bukan sekadar sistem pengumpulan tugas biasa, melainkan platform **Lea
 - **Aktor:** Asprak
 - **Deskripsi:** Memberikan nilai akhir (maks 100) dan *feedback* naratif. Mampu mengekspor rekapan nilai seluruh kelas menjadi file CSV (`export_grades.php`), di mana perhitungan akumulasi (bobot persentase) diproses secara adil tanpa mengikutsertakan kebocoran *denominator* pada mahasiswa yang tidak mengumpulkan tugas.
 
+### UC-09: Pendaftaran Kelas Mandiri (Self-Enrollment)
+- **Aktor:** Mahasiswa
+- **Deskripsi:** Mahasiswa dapat bergabung ke dalam kelas secara mandiri melalui menu `Join Class` dengan memasukkan Kode Kelas (*Class Code*) unik (berisi 8 karakter alfanumerik) yang dibagikan oleh Asisten.
+
+### UC-10: Rotasi Kode Rahasia Asisten (UI Security Management)
+- **Aktor:** Asprak
+- **Deskripsi:** Asisten dapat secara mandiri memperbarui "Kode Rahasia Pendaftaran Asisten" langsung dari halaman Dashboard tanpa perlu menyentuh source code (`config/secret.php`). Ini digunakan sebagai pengamanan berlapis agar mahasiswa tidak bisa mendaftar sebagai asisten.
+
+### UC-11: Kategorisasi Mahasiswa via Aspek Penilaian
+- **Aktor:** Asprak
+- **Deskripsi:** Asisten dapat memecah mahasiswa di dalam satu kelas yang sama ke dalam beberapa "Aspek Penilaian" (*Assessment Aspects*), memungkinkan pengelompokan koreksi yang lebih terstruktur.
+
 ---
 
 ## 4. Pembaruan Logika Bisnis & Constraint Database
