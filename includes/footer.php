@@ -12,6 +12,6 @@
     </script>
 
     <!-- Custom JS -->
-    <script src="/prakchek_/assets/js/preview.js"></script>
+    <script src="/prakchek_/assets/js/preview.js?v=2"></script>
 </body>
 </html>
