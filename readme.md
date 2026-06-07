@@ -58,14 +58,14 @@ Jika Anda sudah menyelesaikan Instalasi di atas, Anda bisa langsung melakukan Lo
 
 ### **Data Komprehensif (Testing Menyeluruh):**
 **Akun Asisten Praktikum (Asprak):**
-- **Email:** `asprak1@prakchek.local`
+- **Email:** `asprak.basisdata@prakchek.local`
 - **Password:** `password123`
-- **Juga tersedia:** `asprak2@prakchek.local`, `asprak3@prakchek.local`
+- **Juga tersedia:** `asprak.rpl@prakchek.local`, `asprak.web@prakchek.local`, `asprak.jaringan@prakchek.local`, dll.
 
 **Akun Mahasiswa:**
-- **Email:** `student1@prakchek.local`
+- **Email:** `student01@prakchek.local`
 - **Password:** `password123`
-- **Juga tersedia:** `student2` sampai `student15@prakchek.local`
+- **Juga tersedia:** `student02@prakchek.local` sampai `student50@prakchek.local`
 
 Untuk mencoba mendaftarkan Asisten Praktikum baru, Anda akan dimintai "Kode Rahasia". Secara bawaan, kodenya adalah:
 - **Kode Rahasia Asisten:** `PRAKCHEK_ASPRAK_2026` 
@@ -85,9 +85,5 @@ Jika Anda ingin mengubah konfigurasi inti di masa depan, berikut adalah file-fil
    Tempat tersimpannya sandi rahasia asisten (walaupun direkomendasikan untuk mengubahnya langsung lewat layar Dashboard/UI).
 
 ---
-
-## ✅ Dokumen Pengujian (QA Testing)
-Untuk memastikan seluruh sistem berjalan lancar tanpa error, silakan jalankan dokumen Uji Kualitas Interaktif (QA) yang telah disediakan.
-Buka di browser: 👉 **`http://localhost/prakchek_/qa_testing.html`**
 
 Selamat mengelola praktikum dengan lebih mudah! 🎉
