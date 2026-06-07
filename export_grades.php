@@ -53,12 +53,12 @@ function outputCSV($filename, $headers, $data) {
     // Add UTF-8 BOM for Excel to recognize UTF-8 encoding
     fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
 
-    // Write headers
-    fputcsv($output, $headers);
+    // Write headers (menggunakan delimiter titik koma ';' agar bersahabat dengan Excel Indonesia)
+    fputcsv($output, $headers, ';');
 
     // Write data rows
     foreach ($data as $row) {
-        fputcsv($output, $row);
+        fputcsv($output, $row, ';');
     }
 
     fclose($output);
