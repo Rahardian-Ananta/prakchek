@@ -383,14 +383,15 @@ try {
                                 <div class="row mt-3">
                                     <div class="col-md-6">
                                         <p><strong>Asprak (Admin):</strong><br>
-                                        Email: <code>asprak1@prakchek.local</code><br>
+                                        Email: <code>asprak.basisdata@prakchek.local</code><br>
                                         Password: <code>password123</code></p>
+                                        <small class="text-muted">(atau asprak.rpl, asprak.web, dll)</small>
                                     </div>
                                     <div class="col-md-6">
                                         <p><strong>Mahasiswa:</strong><br>
-                                        Email: <code>student1@prakchek.local</code><br>
+                                        Email: <code>student01@prakchek.local</code><br>
                                         Password: <code>password123</code></p>
-                                        <small class="text-muted">(student2 sampai student15 juga tersedia)</small>
+                                        <small class="text-muted">(student01 sampai student50 tersedia)</small>
                                     </div>
                                 </div>
                             </div>
