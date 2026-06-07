@@ -530,6 +530,12 @@ try {
         // Collect class students (union of all aspect students)
         $classStudentIds = array_unique(array_merge(...array_values($aspectStudentMap)));
 
+        // ---- Add students to class_members ----
+        $stmtMember = $pdo->prepare("INSERT IGNORE INTO class_members (class_id, user_id) VALUES (?, ?)");
+        foreach ($classStudentIds as $sid) {
+            $stmtMember->execute([$classId, $sid]);
+        }
+
         // ---- Assignments (4 per class = 40 total) ----
         $assignmentIds = [];
         foreach ($cls['assignments'] as $ai => $asgn) {
