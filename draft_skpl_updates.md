@@ -64,16 +64,24 @@ PrakCheck bukan sekadar sistem pengumpulan tugas biasa, melainkan platform **Lea
 - **Aktor:** Asprak
 - **Deskripsi:** Asisten dapat memecah mahasiswa di dalam satu kelas yang sama ke dalam beberapa "Aspek Penilaian" (*Assessment Aspects*), memungkinkan pengelompokan koreksi yang lebih terstruktur.
 
+### UC-12: Manajemen File Tugas & Sistem Draft
+- **Aktor:** Mahasiswa
+- **Deskripsi:** Mahasiswa dapat mengunggah, melihat (*preview*), dan menghapus file lampiran mereka secara bebas selama status pengumpulan masih berupa `Draft`. Ketika mahasiswa menekan tombol *Final Submit*, status berubah menjadi `Submitted` dan manipulasi file akan dikunci.
+
 ---
 
-## 4. Pembaruan Logika Bisnis & Constraint Database
+## 4. Pembaruan Logika Bisnis, Keamanan & Constraint Database
 
-1. **Akses Data Ketat (Authorization):**
+1. **Proteksi Cross-Site Request Forgery (CSRF):**
+   - Hampir seluruh *form* kritikal yang mengubah status (mengubah sandi rahasia, menghapus file, submit tugas akhir) dilindungi oleh *CSRF Token* dinamis yang digenerate di setiap sesi untuk mencegah serangan peretasan dari situs luar.
+2. **Akses Data Ketat (Authorization):**
    - File hanya bisa dibuka (di-request via HTTP) jika yang meminta adalah **Uploader asli (Mahasiswa tersebut)** atau **Asisten dari kelas yang menaungi file tersebut** (dicek di `isClassAssistant` & `isClassMember`).
-2. **Sinkronisasi Waktu (Timezone Fix):**
+3. **Sinkronisasi Waktu (Timezone Fix):**
    - Database PDO dipaksa menggunakan `SET time_zone = '+07:00'` (WIB) untuk mencegah *delay/offset* perhitungan *deadline* pada aplikasi.
-3. **Pembersihan File Otomatis:**
-   - Jika suatu pengumuman, tugas, atau *submission* dihapus, *physical file* pada folder `uploads/` akan diverifikasi dan dihapus menggunakan `unlink()`.
+4. **Pembersihan File Fisik Otomatis (Hard Delete):**
+   - Jika suatu pengumuman, tugas, atau *submission* dihapus, sistem tidak hanya menghapus *record* di database, melainkan juga mengeksekusi `unlink()` untuk memastikan *physical file* pada folder `uploads/` terhapus selamanya, mencegah kebocoran penyimpanan (storage leak).
+5. **Session-based Flash Messages:**
+   - Semua respons notifikasi kepada pengguna (misal: "Tugas berhasil dikumpulkan", "Akses ditolak") disampaikan menggunakan *Flash Messages* berbasis sesi murni (`includes/functions.php`), menjamin antarmuka yang bersih dari parameter URL yang memalukan/bisa dimanipulasi.
 
 ---
 *Silakan salin draf ini untuk memperbarui dokumen SKPL resmi Anda.*
